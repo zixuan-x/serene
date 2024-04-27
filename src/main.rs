@@ -1,7 +1,10 @@
-#![allow(non_snake_case)]
-
+use crate::server::{get_server_data, post_server_data};
 use dioxus::prelude::*;
-use log::LevelFilter;
+
+mod server;
+
+// Urls are relative to your Cargo.toml file
+const _TAILWIND_URL: &str = manganis::mg!(file("public/tailwind.css"));
 
 #[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 enum Route {
@@ -12,9 +15,6 @@ enum Route {
 }
 
 fn main() {
-    // Init debug
-    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
-
     launch(App);
 }
 
@@ -45,7 +45,7 @@ fn Home() -> Element {
             "Go to blog"
         }
         div {
-            h1 { "High-Five counter: {count}" }
+            h1 { class: "border-2", "High-Five counter: {count}" }
             button { onclick: move |_| count += 1, "Up high!" }
             button { onclick: move |_| count -= 1, "Down low!" }
             button {
@@ -61,15 +61,4 @@ fn Home() -> Element {
             p { "Server data: {text}"}
         }
     }
-}
-
-#[server(PostServerData)]
-async fn post_server_data(data: String) -> Result<(), ServerFnError> {
-    println!("Server received: {}", data);
-    Ok(())
-}
-
-#[server(GetServerData)]
-async fn get_server_data() -> Result<String, ServerFnError> {
-    Ok("Hello from the server!".to_string())
 }
