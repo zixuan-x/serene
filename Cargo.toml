@@ -9,11 +9,15 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.197", features = ["derive"] }
 
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["fullstack", "router"] }
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = [
+  "fullstack",
+  "router",
+] }
 
 # Debug
 log = "0.4.19"
-dioxus-logger = "0.4.1"
+dioxus-logger = "0.5.0"
+manganis = "0.2.2"
 
 [features]
 default = []
