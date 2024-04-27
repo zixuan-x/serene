@@ -14,6 +14,7 @@ fn main() {
     launch(App);
 }
 
+#[component]
 fn App() -> Element {
     rsx! {
         Router::<Route> {}
