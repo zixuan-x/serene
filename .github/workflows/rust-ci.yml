@@ -1,4 +1,4 @@
-name: Rust CI
+name: Server Rust CI
 
 on:
   push:
@@ -12,6 +12,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
     steps:
     - uses: actions/checkout@v3
     - name: Install Rust
