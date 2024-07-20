@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# cargo check
+echo "Running cargo check before commiting"
+cargo check --manifest-path server/Cargo.toml
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "cargo check failed, aborting commit."
+  exit $STATUS
+fi
+
+# cargo clippy
+echo "Rnning cargo clippy before commiting"
+cargo clippy --manifest-path server/Cargo.toml
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "cargo clippy failed, aborting commit."
+  exit $STATUS
+fi
+
+# cargo fmt
+echo "Rnning cargo fmt before commiting"
+cargo fmt --manifest-path server/Cargo.toml
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "cargo fmt failed, aborting commit."
+  exit $STATUS
+fi
+
+# If cargo check passes, allow the commit
+exit 0
