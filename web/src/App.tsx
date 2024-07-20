@@ -1,3 +1,4 @@
+import { Button } from "@nextui-org/react";
 import "./App.css";
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
         }}
       >
         Menu
+      </div>
+      <div>
+        <Button>Login</Button>
       </div>
     </>
   );
