@@ -3,5 +3,9 @@
     "dioxus",
     "onclick",
     "Routable"
-  ]
+  ],
+  "files.exclude": {
+    "**/.git": false,
+    "**/.git/{branches,info,logs,objects,*refs,COMM*,desc*,*HEAD,index,config}": true,
+  },
 }
