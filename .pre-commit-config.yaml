@@ -3,6 +3,6 @@ repos:
     rev: v1.0
     hooks:
       - id: fmt
-        args: ["-c", "server", "--"]
+        args: ["--manifest-path", "server/Cargo.toml", "--"]
       - id: cargo-check
-        args: ["-c", "server", "--"]
+        args: ["--manifest-path", "server/Cargo.toml", "--"]
