@@ -1,0 +1,25 @@
+repos:
+  - repo: local
+    hooks:
+      - id: cargo check
+        name: cargo check
+        description: Check a local package and all of its dependencies for errors
+        entry: cargo check --manifest-path server/Cargo.toml --workspace --all-targets --all-features --color always
+        language: system
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: clippy
+        name: clippy
+        description: Checks a package to catch common mistakes and improve your Rust code
+        entry: cargo clippy --manifest-path server/Cargo.toml  --workspace --all-targets --all-features --color always -- -D warnings
+        language: system
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: rustfmt
+        name: rustfmt
+        description: Check if all files follow the rustfmt style
+        entry: cargo fmt --manifest-path server/Cargo.toml --all --check -- --color always
+        language: system
+        pass_filenames: false

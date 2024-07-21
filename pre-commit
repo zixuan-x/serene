@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# * Replaced by .pre-commit-config.yaml
 # cargo check
 echo "Running cargo check before commiting"
 cargo check --manifest-path server/Cargo.toml
