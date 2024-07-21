@@ -8,4 +8,10 @@
     "**/.git": false,
     "**/.git/{branches,info,logs,objects,*refs,COMM*,desc*,*HEAD,index,config}": true,
   },
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.check.extraArgs": [
+    "--",
+    "-D",
+    "warnings"
+  ]
 }

@@ -10,7 +10,7 @@ fi
 
 # cargo clippy
 echo "Rnning cargo clippy before commiting"
-cargo clippy --manifest-path server/Cargo.toml
+cargo clippy --manifest-path server/Cargo.toml -- -D warnings
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
   echo "cargo clippy failed, aborting commit."
