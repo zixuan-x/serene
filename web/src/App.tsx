@@ -1,12 +1,12 @@
-import './App.css'
-import { Button } from '@nextui-org/react'
+import { Button } from "antd";
+import "./App.css";
 
 function App() {
   return (
     <>
-      <Button>click me</Button>
+      <Button>Button</Button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
