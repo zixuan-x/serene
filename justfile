@@ -1,5 +1,3 @@
-# set dotenv-load
-
 run-server:
     set dotenv-path := "server/.env"
     cargo watch -C server -x run
