@@ -1,0 +1,4 @@
+set dotenv-required
+set dotenv-path := ".env"
+run:
+    cargo watch -x run

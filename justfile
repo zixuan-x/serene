@@ -1,5 +1,7 @@
-run-server:
-    set dotenv-path := "server/.env"
-    cargo watch -C server -x run
-run-web:
-    npm --prefix web run dev
+default:
+  @just --choose
+
+server:
+    just server/run
+web:
+    just web/run
