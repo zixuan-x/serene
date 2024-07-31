@@ -1,9 +1,9 @@
 use axum::{http::StatusCode, response::IntoResponse, Router};
-mod bff;
+mod auth;
 
 pub fn routes() -> Router {
     Router::new()
-        .nest("/bff", bff::routes())
+        .nest("/auth", auth::routes())
         .fallback(handle_404)
 }
 
