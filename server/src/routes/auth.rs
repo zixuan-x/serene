@@ -90,6 +90,8 @@ async fn authorize(Query(params): Query<HashMap<String, String>>) -> impl IntoRe
     }
 
     // Return an appropriate response to the client
-    "Authorization complete"
+    let frontend_callback_url =
+        env::var("FRONTEND_CALLBACK_URL").expect("FRONTEND_CALLBACK_URL is not set");
+    Redirect::temporary(&frontend_callback_url)
 }
 async fn logout() {}
