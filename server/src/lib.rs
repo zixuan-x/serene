@@ -14,7 +14,7 @@ pub fn router() -> Router {
         // )
         .with(tracing_subscriber::fmt::layer())
         .init();
-    Router::new().merge(routes::routes()).layer(
+    Router::new().nest("/api/v0", routes::routes()).layer(
         ServiceBuilder::new()
             .layer(TraceLayer::new_for_http())
             .into_inner(),
